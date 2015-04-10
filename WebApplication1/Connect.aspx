@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
     <div>
     
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MISStudentConnectionString %>" SelectCommand="SELECT * FROM [Student]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StudentConnectionString %>" SelectCommand="SELECT * FROM [Student]"></asp:SqlDataSource>
     
     </div>
     </form>

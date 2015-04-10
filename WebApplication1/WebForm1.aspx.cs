@@ -9,7 +9,10 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication1
 {
-    public partial class Test : System.Web.UI.Page
+    /// <summary>
+    /// DataReader
+    /// </summary>
+    public partial class WebForm1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,12 +22,12 @@ namespace WebApplication1
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             lbResult.Items.Clear();
-            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["MISStudentConnectionString"].ConnectionString))
+            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["StudentConnectionString"].ConnectionString))
             {
                 cn.Open();
                 using (SqlCommand cmd = cn.CreateCommand())
                 {
-                    cmd.CommandText = "select * from student where student_Name like @name";
+                    cmd.CommandText = "select * from Student where Name like @name";
                     cmd.Parameters.Add(new SqlParameter("@name", "%" + txtSearch.Text + "%"));
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
